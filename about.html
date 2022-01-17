@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta htto-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>关于</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body {
+            background: url('img/bg1.jpg') no-repeat;
+            background-position: center center;
+            background-size: 250%;
+        }
+
+        .main {
+            width: 450px;
+            margin: 0 auto;
+        }
+
+        .main .header {
+            width: 450px;
+            height: 50px;
+            background-color: rgba(255, 250, 240, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000000;
+            margin: 20px 0;
+        }
+
+        .main .header h1 {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 450px;
+            height: 350px;
+            background-color: rgba(255, 250, 240, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000000;
+        }
+
+        .about span#v_tip {
+            padding: 20px 0;
+            font-size: 20px;
+        }
+
+        .about span#version {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .about #checkUp {
+            width: 80px;
+            height: 30px;
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>关于</h1>
+        </div>
+        <div class="about">
+            <span id="v_tip">当前版本号</span>
+            <span id="version">V1.1.0</span>
+            <button id="checkUp" onclick="alert('此为最新版本！')">检查更新</button>
+            <span>By @lhk email:2735982878@qq.com</span>
+            <span>Powered by Electron</span>
+        </div>
+    </div>
+</body>
+
+</html>

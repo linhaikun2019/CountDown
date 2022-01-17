@@ -1,0 +1,24 @@
+{
+  "name": "Countdown",
+  "version": "1.1.0",
+  "description": "a countdown program",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "packager": "electron-packager . CountDown --platform=win32 --arch=x64 --out=./out --asar --app-version=1.1.0 --overwrite --ignore=node_modules --electron-version 13.1.9"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "lhk",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^13.1.9",
+    "electron-packager": "^15.2.0"
+  }
+}

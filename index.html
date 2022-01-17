@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta htto-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>计时器</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      flex-direction: column;
+      background: url('./img/bg1.jpg') no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+    }
+
+    .header {
+      position: absolute;
+      top: 30px;
+      right: 10px;
+    }
+
+    .header span {
+      font-size: 25px;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .main .clock #clockText {
+      font-size: 100px;
+      text-shadow: 2px 1px 5px #000000;
+    }
+
+    .btn {
+      margin-top: 30px;
+    }
+
+    .btn button {
+      width: 100px;
+      height: 50px;
+      margin-left: 30px;
+      font-size: 23px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 0;
+      outline: none;
+      box-shadow: 0 0 2px;
+    }
+
+    .btn #start {
+      width: 120px;
+      margin-left: 0;
+    }
+
+    .btn #reset {
+      width: 120px;
+    }
+
+    .footer .size {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .footer .set {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .footer button {
+      width: 80px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 0;
+      outline: none;
+      box-shadow: 0 0 2px;
+    }
+
+    .footer .size button {
+      width: 100px;
+    }
+
+    .btn button:hover {
+      box-shadow: 0 0 10px 5px #CCCCCC;
+    }
+
+    .footer button:hover {
+      box-shadow: 0 0 10px 5px #CCCCCC;
+    }
+
+    .btn button:active {
+      transform: scale(0.96);
+    }
+
+    .footer button:active {
+      transform: scale(0.96);
+    }
+
+    .btn i {
+      display: none;
+    }
+
+    #big {
+      display: none;
+    }
+
+    @media screen and (max-width: 500px) {
+      body {
+        background: url('./img/bg1.jpg') no-repeat;
+        background-position: center center;
+        border: 0;
+      }
+
+      #clockText {
+        height: 30px;
+        position: absolute;
+        top: -58px;
+        left: 10px;
+      }
+
+      #clockText span {
+        font-size: 40px;
+      }
+
+      .time {
+        display: none;
+      }
+
+      .btn {
+        position: absolute;
+        left: 200px;
+        margin-left: 0;
+        margin-top: -5px;
+      }
+
+      .btn button {
+        margin-left: 0;
+      }
+
+      .btn span {
+        display: none;
+      }
+
+      .btn i {
+        display: block;
+      }
+
+      #start {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+      }
+
+      #pause {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+      }
+
+      #reset {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+      }
+
+      #big {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+        display: inline;
+      }
+
+      .footer {
+        display: none;
+      }
+
+      .set {
+        display: none;
+      }
+
+      #timeText {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="time"><span id="timeText"></span></div>
+  </div>
+  <div class="main">
+    <div class="clock">
+     <h1 id="clockText"><span id="h_count">00</span><span>:</span><span id="m_count">00</span><span>:</span><span
+         id="s_count">00</span></h1>
+    </div>
+    <div class="btn">
+      <button id="start"><span>开始/继续</span><i class="fa fa-play" style="padding-left: 5px;"></i></button>
+      <button id="pause"><span>暂停</span><i class="fa fa-pause"></i></button>
+      <button id="reset"><span>停止/重置</span><i class="fa fa-stop"></i></button>
+      <button id="big"><i class="fa fa-expand"></i></button>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="size">
+      <button id="small">小窗模式</button>
+    </div>
+    <div class="set">
+      <button id="setting">设置</button>
+      <button id="about">关于</button></div>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>

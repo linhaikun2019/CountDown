@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta htto-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>设置</title>
+    <style>
+        * {
+            user-select: none;
+        }
+
+        body {
+            background: url('img/bg1.jpg') no-repeat;
+            background-position: center center;
+            background-size: 250%;
+        }
+
+        .main {
+            width: 450px;
+            height: 600px;
+        }
+
+        .main .nav {
+            display: inline-block;
+            list-style: none;
+        }
+
+        .main .nav li {
+            float: left;
+            padding: 10px 60px;
+            margin-left: 22px;
+            background-color: rgba(255, 250, 240, 0.8);
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000000;
+        }
+
+        .conv {
+            width: 435px;
+            height: 520px;
+            margin-left: 20px;
+            background-color: rgba(255, 250, 240, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000000;
+        }
+
+        .conv .setTime {
+            padding: 20px 20px;
+
+        }
+
+        .conv .setTime label {
+            font-size: 20px;
+            line-height: 20px;
+            margin: 120px;
+        }
+
+        .conv .setTime #countDown {
+            line-height: 40px;
+        }
+
+        .conv .setTime #thre_tip {
+            line-height: 40px;
+            padding-left: 15px;
+        }
+
+        .conv .setTime #mid_text {
+            line-height: 40px;
+            padding-left: 175px;
+        }
+
+        .conv .setTime #setStep {
+            margin-left: 100px;
+        }
+
+        .conv .setTime #step_tip {
+            line-height: 40px;
+            padding-left: 25px;
+        }
+
+        .conv .setTime input {
+            width: 60px;
+            height: 30px;
+            font-size: 30px;
+            text-indent: 10px;
+        }
+
+        .conv .setTime input#hour {
+            margin-left: 50px;
+        }
+
+        .conv .setTime input#maxHour {
+            margin-left: 50px;
+        }
+
+        .conv .setTime input#minHour {
+            margin-left: 50px;
+        }
+
+        .conv .setTime input#step {
+            margin-left: 120px;
+        }
+
+        .conv .setTime span {
+            font-size: 25px;
+            line-height: 20px;
+        }
+
+        .save_btn {
+            position: absolute;
+            top: 520px;
+            left: 130px;
+        }
+
+        .save_btn button {
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 0;
+            outline: none;
+            box-shadow: 0 0 2px;
+            margin-left: 20px;
+        }
+
+        .skin {
+            width: 435px;
+            height: 520px;
+            margin-left: 20px;
+            background-color: rgba(255, 250, 240, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000000;
+            display: none;
+        }
+
+        /* .other {
+            width: 435px;
+            height: 520px;
+            margin-left: 20px;
+            background-color: rgba(255, 250, 240, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000000;
+            display: none;
+        } */
+
+        .skin .setSkin {
+            width: 395px;
+            padding: 20px 20px;
+            display: inline-block;
+        }
+
+        .skin .setSkin #skin_t {
+            line-height: 40px;
+            padding-left: 25px;
+        }
+
+        .skin .setSkin #dft {
+            float: left;
+            width: 60px;
+            height: 60px;
+            background: url('img/bg1.jpg') no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            margin: 0 5px;
+            border: 2px solid orange;
+        }
+
+        .skin .setSkin #white {
+            float: left;
+            width: 60px;
+            height: 60px;
+            background: #FFFFFF;
+            margin: 0 5px;
+            border: 2px solid transparent;
+        }
+
+        .skin .setSkin #gray {
+            float: left;
+            width: 60px;
+            height: 60px;
+            background: #c0c0c0;
+            margin: 0 5px;
+            border: 2px solid transparent;
+        }
+
+        .skin .setSkin label {
+            font-size: 20px;
+            line-height: 20px;
+            margin: 120px;
+        }
+
+        .skin .setTheme {
+            padding: 20px 20px;
+            margin-bottom: 100px;
+        }
+
+        .skin .setTheme #lay_t {
+            line-height: 40px;
+            padding-left: 25px;
+        }
+
+        .skin .setTheme #onDate {
+            margin: 0;
+            vertical-align: middle;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .skin .setTheme #onSmall {
+            margin: 0;
+            vertical-align: middle;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .skin .setTheme label {
+            font-size: 20px;
+            line-height: 20px;
+            margin: 120px;
+        }
+
+        .skin .setTheme input[type='checkbox'] {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        /* .other .setClock {
+            width: 395px;
+            padding: 20px 20px;
+            display: inline-block;
+        }
+
+        .other .setSound {
+            width: 395px;
+            padding: 20px 20px;
+            display: inline-block;
+            margin-bottom: 160px;
+        }
+
+        .other .setClock label {
+            font-size: 20px;
+            line-height: 20px;
+            margin: 120px;
+        }
+
+        .other .setSound label {
+            font-size: 20px;
+            line-height: 20px;
+            margin: 120px;
+        }
+
+        .other .setClock #clock_t {
+            line-height: 40px;
+            padding-left: 25px;
+        }
+
+        .other .setSound #sound_t {
+            line-height: 40px;
+            padding-left: 25px;
+        }
+
+        .other .setClock select {
+            height: 30px;
+        }
+
+        .other .setClock #resetTime{
+            width: 120px;
+            height: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            margin: 10px 0 0 130px;
+        }
+
+        .other .setSound button {
+            width: 50px;
+            height: 30px;
+            font-size: 15px;
+            cursor: pointer;
+        } */
+
+        .main .nav li:hover {
+            background-color: rgba(255, 250, 240);
+            cursor: pointer;
+            box-shadow: 0 0 15px #000000;
+        }
+
+        .main .nav li:active {
+            transform: scale(0.96);
+        }
+
+        .save_btn button:hover {
+            box-shadow: 0 0 10px 5px #CCCCCC;
+        }
+
+        .save_btn button:active {
+            transform: scale(0.96);
+        }
+
+        .skin .setSkin #dft:hover {
+            cursor: pointer;
+        }
+
+        .skin .setSkin #white:hover {
+            cursor: pointer;
+        }
+
+        .skin .setSkin #gray:hover {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul class="nav">
+            <li id="base">基本</li>
+            <li id="theme">主题</li>
+            <!-- <li id="other">其他</li> -->
+        </ul>
+        <div class="conv">
+            <div class="setTime">
+                <label id="countDown">设置倒计时时间</label>
+                <input type="number" name="hour" id="hour" value="0">
+                <span>时</span>
+                <input type="number" name="min" id="min" value="0">
+                <span>分</span>
+                <input type="number" name="sec" id="sec" value="0">
+                <span>秒</span>
+                <hr>
+                <label id="threshold">设置倒计时阈值</label><br><label id="thre_tip">(默认无限制)</label>
+                <input type="number" name="maxHour" id="maxHour" value="0">
+                <span>时</span>
+                <input type="number" name="maxMin" id="maxMin" value="0">
+                <span>分</span>
+                <input type="number" name="maxSec" id="maxSec" value="0">
+                <span>秒</span><br>
+                <span id="mid_text">至</span><br>
+                <input type="number" name="minHour" id="minHour" value="0">
+                <span>时</span>
+                <input type="number" name="minMin" id="minMin" value="0">
+                <span>分</span>
+                <input type="number" name="minSec" id="minSec" value="0">
+                <span>秒</span>
+                <hr>
+                <label id="setStep">设置倒计时步(秒)长</label><br><label id="step_tip">(默认为1)</label>
+                <input type="number" name="step" id="step" value="1">
+                <span>步(秒)</span>
+                <hr>
+            </div>
+        </div>
+        <div class="skin">
+            <div class="setSkin">
+                <label id="skin_t">设置皮肤</label>
+                <hr>
+                <div id="dft" title="默认皮肤"></div>
+                <div id="white" title="白色皮肤"></div>
+                <div id="gray" title="灰色皮肤"></div>
+                <!-- <div id="custom1" title="自定义皮肤1"><span class="del_t">+</span></div>
+                <div id="custom2" title="自定义皮肤2"><span class="del_t">+</span></div>
+                <div id="add" title="自定义皮肤"><span id="add_t">+</span></div> -->
+            </div>
+            <div class="setTheme">
+                <label id="lay_t">界面设置</label>
+                <hr>
+                <input type="checkbox" name="showDate" id="showDate">
+                <label id="onDate" for="showDate">隐藏首页日期显示(默认显示)</label><br><br>
+                <input type="checkbox" name="showSmall" id="showSmall">
+                <label id="onSmall" for="showSmall">禁用小窗模式(默认启用)</label>
+            </div>
+        </div>
+        <!-- <div class="other">
+            <div class="setClock">
+                <label id="clock_t">设置日期</label>
+                <hr>
+                <select name="year" id="year">
+                    <option value="2021">2021</option>
+                </select>
+                <span>年</span>
+                <select name="mouth" id="mouth">
+                    <option value="4">4</option>
+                </select>
+                <span>月</span>
+                <select name="day" id="day">
+                    <option value="25">25</option>
+                </select>
+                <span>日</span>
+                <select name="week" id="week">
+                    <option value="星期日">星期日</option>
+                </select>
+                <select name="h" id="h">
+                    <option value="00">00</option>
+                </select>
+                <span>点</span>
+                <select name="m" id="m">
+                    <option value="00">00</option>
+                </select>
+                <span>分</span><br>
+                <button id="resetTime">同步系统时间</button>
+            </div>
+            <div class="setSound">
+                <label id="sound_t">设置声音</label>
+                <hr>
+                <span>当前提示音：</span>
+                <span id="sound">sound.mp3</span>
+                <button id="ch_s">更改</button>
+            </div>
+        </div> -->
+        <div class="save_btn">
+            <button class="save">保存</button>
+            <button class="cancel">取消</button>
+        </div>
+    </div>
+    <script src="./setting.js"></script>
+</body>
+
+</html>
