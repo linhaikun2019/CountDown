@@ -7,8 +7,9 @@
 <a href="https://github.com/linhaikun2019/CountDown"><img src="https://img.shields.io/badge/CountDown-1.1.0-brightgreen" alt="CountDown"/></a>
 <a href="https://nodejs.org/download/release/v14.17.3/"><img src="https://img.shields.io/badge/NodeJS-14.17.3-green" alt="NodeJS"/></a>
 <a href="https://github.com/electron/electron/releases/tag/v13.1.9"><img src="https://img.shields.io/badge/Electron-13.1.9-yellowgreen" alt="Electron"/></a><br><br><br>
-<img src="https://raw.githubusercontent.com/linhaikun2019/CountDown/main/img/%E5%80%92%E8%AE%A1%E6%97%B6%E6%B5%B7%E6%8A%A5.jpg" alt="cover" width="800"/>
+<img src="https://raw.githubusercontent.com/linhaikun2019/CountDown/main/img/cover.jpg" alt="cover" width="800"/>
 </div>
+
 
 
 ## 简介
