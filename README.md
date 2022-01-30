@@ -1,14 +1,15 @@
 # CountDown
 
 <div align="center">
-<font size="5px">一个基于NodeJS+Electron开发的倒计时小程序</font><br>
-<a href="https://nodejs.org/en/" title="NodeJS"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" width="200" alt="node" /></a>
-<a href="https://www.electronjs.org/" title="Electron"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/electron/electron-original.svg" width="80" alt="electron" /></a><br>
+<font size="5px">一个基于NodeJS+Electron开发的倒计时小程序</font><br><br>
+<a href="https://nodejs.org/en/" title="NodeJS"><img src="https://raw.githubusercontent.com/linhaikun2019/CountDown/main/img/nodejs.png" width="200" alt="node" /></a>
+<a href="https://www.electronjs.org/" title="Electron"><img src="https://raw.githubusercontent.com/linhaikun2019/CountDown/main/img/electron.png" width="80" alt="electron" /></a><br><br>
 <a href="https://github.com/linhaikun2019/CountDown"><img src="https://img.shields.io/badge/CountDown-1.1.0-brightgreen" alt="CountDown"/></a>
 <a href="https://nodejs.org/download/release/v14.17.3/"><img src="https://img.shields.io/badge/NodeJS-14.17.3-green" alt="NodeJS"/></a>
 <a href="https://github.com/electron/electron/releases/tag/v13.1.9"><img src="https://img.shields.io/badge/Electron-13.1.9-yellowgreen" alt="Electron"/></a><br><br><br>
 <img src="https://raw.githubusercontent.com/linhaikun2019/CountDown/main/img/cover.jpg" alt="cover" width="800"/>
 </div>
+
 
 
 
